@@ -1,0 +1,16 @@
+We try to use subquery as in Snowflake the subqueries can be run faster as compared to 1 complex query to increaase the running time.
+Here we have 2 joining condition so we separate them for query optimization.
+
+(SELECT
+	PRODUCT.ProductID,
+	PRODUCT.Name
+FROM Production.Product PRODUCT
+INNER JOIN Sales.SalesOrderDetail DETAIL
+ON PRODUCT.ProductID = DETAIL.ProductID)
+UNION
+(SELECT
+	PRODUCT.ProductID,
+	PRODUCT.Name
+FROM Production.Product PRODUCT
+INNER JOIN Sales.SalesOrderDetail DETAIL
+ON PRODUCT.rowguid = DETAIL.rowguid)
