@@ -1,0 +1,15 @@
+Optimize below sql code and also provide optimization techinque of sql query 
+
+SELECT DISTINCT
+
+	PRODUCT.ProductID,
+
+	PRODUCT.Name
+
+FROM Production.Product PRODUCT
+
+INNER JOIN Sales.SalesOrderDetail DETAIL
+
+ON PRODUCT.ProductID = DETAIL.ProductID
+
+OR PRODUCT.rowguid = DETAIL.rowguid;
